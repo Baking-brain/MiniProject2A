@@ -1,14 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon3.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<body>
-  <h1 style="text-align: center;">USER DATA</h1>
-  <h3>Name: {{ userdata.fname }} {{ userdata.lname }}</h3>
-  <h5>Date Joined: {{ userdata.joiningdate }}</h5>
+<body bg>
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+                <div class="col-xl-8 col-md-10">
+                    <div class="card user-card-full">
+                        <div class="row m-l-0 m-r-0">
+                            <div class="col-sm-4 bg-c-lite-green user-profile">
+							<img id="icon" src="../static/images/logo.png" alt="logo">
+                                <div class="card-block text-center text-white">
+                                    <div class="m-b-25">
+                                        <img id="profile-pic" src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image">
+                                    </div>
+                                    <h1 id="dev1" class="f-w-600">Welcome to Your Profile</h1>
+                                    <h2 id="dev1" class="f-w-600">You are currently at level {{userdata.userlevel}} </h1>
+                                </div>
+                                <p>Joined Since: {{userdata.joiningdate}}</p>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="card-block">
+                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Username</p>
+                                            <input type="text" id="username" class="form-control info-fields" value="{{userdata.username}}" placeholder="Enter your username" disabled=true>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">First Name</p>
+                                            <input type="text" id="fname" class="form-control info-fields" value="{{userdata.fname}}" placeholder="Enter your First Name" disabled=true>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Last Name</p>
+                                            <input type="text" id="lname" class="form-control info-fields" value="{{userdata.lname}}" placeholder="Enter your Last Name" disabled=true>
+                                        </div>
+                                    </div>
+                                    <div id="btn-container">
+                                        <button id="edit-btn" class="btn btn-success btn-block m-t-40" onclick="editprofile()">Edit Profile</button>
+                                        <button id="save-btn" class="btn btn-success btn-block m-t-40" onclick="savechanges()" disabled=true>Save Changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <script src="{{ url_for('static', filename='scripts/profile.js') }}"></script>
 </body>
 </html>

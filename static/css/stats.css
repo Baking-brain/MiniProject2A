@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+  
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url('../images/background3.jpg'); 
+}
+
+#graph-div{
+  display: flex;
+}
+
+#graph{
+  margin: auto;
+  width: 50%;
+  height: 440px;
+  margin-bottom: 32px;
+}
+
+#progress-bar{
+  width: 60%;
+  height: 32px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 36px;
+  background-color: white;
+  overflow: hidden;
+}
+
+#progress-fill{
+  height: 100%;
+  position: relative;
+  background-color: rgb(31, 200, 31);
+}
+
+#mastered-words-number{
+  margin-bottom: 48px;
+}
+
+#mastered-words-number div{
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  margin: 8px;
+}

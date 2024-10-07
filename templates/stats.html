@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta name="viewport" content="with=device-width,initial-scale=1.0">
+    <title>Statistics</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon3.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stats.css') }}">
+</head>
+<body>
+
+    <!-- Mastered Words Bar -->
+    <div id="progress-bar">
+        <div id="progress-fill" style="width: {{ mastered_words_progress}}%"></div>
+    </div>
+
+    <section id="mastered-words-number">
+        <div>Words Mastered: {{mastered_words}}</div>
+        <div>Total Words: {{totalwords}}</div>
+    </section>
+
+    <!-- New Words Bar -->
+    <div id="progress-bar">
+        <div id="progress-fill" style="width: {{learning_words_progress}}%"></div>
+    </div>
+
+    <section id="mastered-words-number">
+        <div>Learning Words: {{learning_words}}</div>
+        <div>Total Words: {{totalwords}}</div>
+    </section>
+
+    <!-- Graph -->
+    <div id="graph-div">
+        <img src="" id="graph">
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts/stats.js') }}"></script>
+</body>
+</html>

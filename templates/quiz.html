@@ -3,8 +3,8 @@
     <head>
         <meta name="viewport" content="with=device-width,initial-scale=1.0">
         <title>Vocablearn</title>
-        <link rel="icon" type="image/x-icon" href="favicon3.png">
-        <link rel="stylesheet" href="quiz.css">
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon3.png') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
     </head>
 <body>
 
@@ -21,112 +21,11 @@
         <div class="navigation-buttons">
             <button id="prevBtn" onclick="prevQuestion()">Previous</button>
             <button id="nextBtn" onclick="nextQuestion()">Next</button>
-            <button id="endBtn" onclick="endTest()">End Test</button>
+            <button id="endBtn" onclick="nextQuestion()">End Test</button>
         </div>
     </div>
 
-    <script>
-        // Array of quiz questions
-        const quizData = [
-            {
-                question: "Word",
-                options: ["1", "2", "3", "4"],
-                correct: 0
-            },
-            {
-                question: "Word",
-                options: ["A", "B", "C", "D"],
-                correct: 1
-            },
-            {
-                question: "Word",
-                options: ["a", "b", "c", "d"],
-                correct: 0
-            },
-            {
-                question: "Word",
-                options: ["i", "ii", "iii", "iv"],
-                correct: 1
-            },
-            {
-                question: "Word",
-                options: ["I", "II", "III", "IV"],
-                correct: 0
-            }
-        ];
 
-        let currentQuestion = 0;
-
-        const questionEl = document.getElementById('question');
-        const optionsContainer = document.getElementById('options-container');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const endBtn = document.getElementById('endBtn');
-
-        // Load the first question
-        loadQuestion();
-
-        // Load question based on current index
-        function loadQuestion() {
-            const currentQuizData = quizData[currentQuestion];
-
-            // Set question text
-            questionEl.textContent = currentQuizData.question;
-
-            // Clear previous options
-            optionsContainer.innerHTML = '';
-
-            // Set new options
-            currentQuizData.options.forEach((option, index) => {
-                const optionEl = document.createElement('div');
-                optionEl.classList.add('option');
-                optionEl.innerHTML = `
-                    <label>
-                        <input type="radio" name="option" value="${index}">
-                        ${option}
-                    </label>
-                `;
-                optionsContainer.appendChild(optionEl);
-            });
-
-            // Handle button visibility
-            if (currentQuestion === 0) {
-                prevBtn.style.display = 'none';
-            } else {
-                prevBtn.style.display = 'inline-block';
-            }
-
-            if (currentQuestion === quizData.length - 1) {
-                nextBtn.style.display = 'none';
-                endBtn.style.display = 'inline-block';
-            } else {
-                nextBtn.style.display = 'inline-block';
-                endBtn.style.display = 'none';
-            }
-        }
-
-        // Next question
-        function nextQuestion() {
-            if (currentQuestion < quizData.length - 1) {
-                currentQuestion++;
-                loadQuestion();
-            }
-        }
-
-        // Previous question
-        function prevQuestion() {
-            if (currentQuestion > 0) {
-                currentQuestion--;
-                loadQuestion();
-            }
-        }
-
-        // End test
-        function endTest() {
-            alert("Test completed! Thank you for participating.");
-            // You can add any additional functionality here, like submitting answers.
-            window.location.href = "homepage.html";
-        }
-    </script>
+    <script src="{{ url_for('static', filename='scripts/quiz.js') }}"></script>
 </body>
 </html>

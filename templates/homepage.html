@@ -11,7 +11,7 @@
         <nav>
             <img src="../static/images/logo.png" class="logo">
             <div class="streak">
-                <h2 id="streakdays">39</h2>
+                <h2 id="streakdays"></h2>
                 <img src="../static/images/streak.png">
             </div>
 
@@ -28,12 +28,12 @@
 
                     <hr>
 
-                    <a href="#" class="sub-menu-link">
+                    <a class="sub-menu-link" onclick="openProfile()">
                         <img src="../static/images/profile.png">
                         <p>Edit profile</p>
                         <span>></span>
                     </a>
-                    <a href="#" class="sub-menu-link" onclick="logout()">
+                    <a class="sub-menu-link" onclick="logout()">
                         <img src="../static/images/logout.png">
                         <p>Logout</p>
                         <span>></span>
@@ -49,23 +49,23 @@
             
         
             <div class="row">
-                <div class="features-col">
+                <div class="features-col" onclick="openLearn()">
                     <img src="../static/images/h1.png" >
-                    <a href="learn.html" class="layer">
+                    <a class="layer">
                         <h3>Learn</h3>
                     </a>
                 </div>
 
-                <div class="features-col">
+                <div class="features-col" onclick="openReview()">
                     <img src="../static/images/h2.png" >
-                    <a href="#" class="layer">
+                    <a class="layer">
                         <h3>Review</h3>
                     </a>
                 </div>
 
-                <div class="features-col">
+                <div class="features-col" onclick="openStats()">
                     <img src="../static/images/h3.png" >
-                    <a href="#" class="layer">
+                    <a class="layer">
                         <h3>Your Scores</h3>
                     </a>
                 </div>

@@ -1,4 +1,4 @@
-<html></html>
+<html>
   <head>
     <meta name="viewport" content="with=device-width,initial-scale=1.0">
     <title>Vocablearn</title>
@@ -9,11 +9,11 @@
 
 <section class="header">
   <div class="card-container">
-    <div class="card" id="flipCard">
-      <div class="card-face card-front">
+    <div class="card" id="flipCard" onclick="flip()">
+      <div class="card-face card-front" id="word">
         Dictionary
       </div>
-      <div class="card-face card-back">
+      <div class="card-face card-back" id="meaning">
         A dictionary is a listing of lexemes from the lexicon of one or more specific languages, often arranged alphabetically,
          which may include information on definitions, usage, etymologies, pronunciations, translation, etc.
       </div>
@@ -21,21 +21,14 @@
 
     <!-- Buttons placed outside the card -->
     <div class="button-container" id="buttonContainer">
-      <button class="btn know-btn">I know this word</button>
-      <button class="btn dont-know-btn">I don't know this word</button>
+      <button class="btn know-btn" onclick="handleAnswer(1)">I know this word</button>
+      <button class="btn dont-know-btn" onclick="handleAnswer(0)">I don't know this word</button>
+      <!-- <button class="btn dont-know-btn" onclick="checkStreak()">Check Streak</button> -->
     </div>
   </div>
 </section>
 
-<script>
-  const card = document.getElementById('flipCard');
-  const buttonContainer = document.getElementById('buttonContainer');
-
-  card.addEventListener('click', () => {
-    card.classList.toggle('is-flipped');
-    buttonContainer.classList.toggle('show-buttons'); // Toggle visibility of the buttons
-  });
-</script>
+<script src="{{ url_for('static', filename='scripts/learn.js') }}"></script>
 
 </body>
 </html>
