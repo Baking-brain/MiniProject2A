@@ -7,3 +7,46 @@ Database:
 -Create Tables
     create table if not exists login(username varchar(50) primary key, password varchar(50) not null);
     create table if not exists profile(username varchar(50) primary key, fname varchar(25), lname varchar(25), joining datetime);
+    CREATE if not exists TABLE scores (
+  username varchar(50) NOT NULL,
+  score1 int DEFAULT '0',
+  score2 int DEFAULT '0',
+  score3 int DEFAULT '0',
+  score4 int DEFAULT '0',
+  score5 int DEFAULT '0',
+  KEY username (username),
+  CONSTRAINT scores_ibfk_1 FOREIGN KEY (username) REFERENCES login (username)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+CREATE TABLE if not exists streaks (
+  username varchar(50) DEFAULT NULL,
+  streak_count int DEFAULT '0',
+  laststreak varchar(100) DEFAULT NULL,
+  KEY username (username),
+  CONSTRAINT streaks_ibfk_1 FOREIGN KEY (username) REFERENCES login (username)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE if not exists userprogress (
+  username varchar(50) NOT NULL,
+  word_id int NOT NULL,
+  correct_answers int DEFAULT '0',
+  incorrect_answers int DEFAULT '0',
+  box_level int DEFAULT '0',
+  UNIQUE KEY username (username,word_id),
+  KEY userprogress_ibfk_2_idx (word_id),
+  CONSTRAINT userprogress_ibfk_1 FOREIGN KEY (username) REFERENCES login (username),
+  CONSTRAINT userprogress_ibfk_2 FOREIGN KEY (word_id) REFERENCES words (word_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+CREATE TABLE if not exists words (
+  word_id int NOT NULL,
+  word varchar(500) DEFAULT NULL,
+  meaning varchar(1000) DEFAULT NULL,
+  difficulty int DEFAULT NULL,
+  PRIMARY KEY (word_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
